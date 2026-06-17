@@ -10,17 +10,17 @@ The task focuses on red, blue, and green colored blocks of different sizes. The 
 
 ## How to Read This Documentation
 
-Read the files in order:
+Read the files in order. Each file explains one part of the project workflow.
 
 | Step | File | Purpose |
 |---|---|---|
 | 1 | `01_project_overview.md` | Project goal, workflow, and task summary |
 | 2 | `02_robot_setup.md` | Robot, camera, software, and setup requirements |
 | 3 | `03_episode_collection.md` | Episode recording procedure |
-| 4 | `04_dataset_organization.md` | Dataset folder structure |
-| 5 | `05_huggingface_storage.md` | Dataset storage and sharing |
+| 4 | `04_dataset_organization.md` | Dataset folder structure and organization |
+| 5 | `05_huggingface_storage.md` | Dataset storage and sharing on Hugging Face |
 | 6 | `06_training_preparation.md` | Training preparation workflow |
-| 7 | `07_troubleshooting.md` | Known issues and solutions |
+| 7 | `07_troubleshooting.md` | Common issues and solutions |
 
 ---
 
