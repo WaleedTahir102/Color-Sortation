@@ -45,8 +45,9 @@ Model Training
       ↓
 Testing and Color Sortation
 
+---
 
-## Goal
+## Project Workflow
 
 The goal of this work is to prepare a structured dataset for training the Trossen Mobile AI Robot to recognize and sort colored blocks.
 
