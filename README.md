@@ -44,3 +44,11 @@ Hugging Face Storage
 Model Training
       ↓
 Testing and Color Sortation
+
+
+## Goal
+
+The goal of this work is to prepare a structured dataset for training the Trossen Mobile AI Robot to recognize and sort colored blocks.
+
+The dataset contains demonstration episodes recorded through teleoperation. These episodes show the robot observing and interacting with colored blocks under different positions and object-size variations.
+
