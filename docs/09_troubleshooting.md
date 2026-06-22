@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting 
 
 This section documents common issues faced during setup and data collection.
 
