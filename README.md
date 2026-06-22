@@ -1,32 +1,26 @@
-# Color Sortation Onboarding
+# Color Sortation Documentation
 
-Welcome to the Color Sortation documentation for the Trossen Mobile AI Robot project.
+This repository contains documentation for the color sortation task using the Trossen Mobile AI Robot.
 
-This repository explains the complete workflow for collecting color-based demonstration episodes, organizing the dataset, storing it on Hugging Face, and preparing it for robot training.
+The project focuses on collecting color-based demonstration episodes through teleoperation, organizing the dataset by color category, storing the dataset on Hugging Face, and preparing it for robot training.
 
-The task focuses on red, blue, and green colored blocks of different sizes. The robot is controlled through teleoperation, while its camera records demonstrations that will later be used for training color-based sorting behavior.
+## Documentation Website
 
----
+The full documentation is available through GitHub Pages after deployment.
 
-## How to Read This Documentation
+## Main Topics
 
-Read the files in order. Each file explains one part of the project workflow.
-
-| Step | File | Purpose |
-|---|---|---|
-| 1 | `01_project_overview.md` | Project goal, workflow, and task summary |
-| 2 | `02_robot_setup.md` | Robot, camera, software, and setup requirements |
-| 3 | `03_episode_collection.md` | Episode recording procedure |
-| 4 | `04_dataset_organization.md` | Dataset folder structure and organization |
-| 5 | `05_huggingface_storage.md` | Dataset storage and sharing on Hugging Face |
-| 6 | `06_training_preparation.md` | Training preparation workflow |
-| 7 | `07_troubleshooting.md` | Common issues and solutions |
-
----
+- Project overview
+- System requirements
+- Robot and camera setup
+- Data Collection UI usage
+- Episode collection workflow
+- Dataset organization
+- Hugging Face storage
+- Training preparation
+- Troubleshooting
 
 ## Project Workflow
-
-![Color Sortation Workflow](assets/workflow.png)
 
 ```text
 Colored Blocks
@@ -44,12 +38,19 @@ Hugging Face Storage
 Model Training
       ↓
 Testing and Color Sortation
+```
 
----
+## Repository Structure
 
-## Project Workflow
-
-The goal of this work is to prepare a structured dataset for training the Trossen Mobile AI Robot to recognize and sort colored blocks.
-
-The dataset contains demonstration episodes recorded through teleoperation. These episodes show the robot observing and interacting with colored blocks under different positions and object-size variations.
-
+docs/
+├── index.md
+├── 01_overview.md
+├── 02_system_requirements.md
+├── 03_setup.md
+├── 04_data_collection_ui.md
+├── 05_episode_collection.md
+├── 06_dataset_organization.md
+├── 07_huggingface_storage.md
+├── 08_training_preparation.md
+├── 09_troubleshooting.md
+└── 10_changelog.md
