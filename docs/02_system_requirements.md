@@ -52,7 +52,7 @@ Add these images to the `docs/assets/` folder:
 
 ## Example Setup Image
 
-![Robot Setup](assets/robot_setup.jpg)
+![Robot Setup](assets/robot_setup.jpeg)
 
 ## Safety Notes
 
