@@ -56,4 +56,4 @@ This dataset contains color sortation demonstration episodes collected using the
 
 ## Hugging Face Screenshot
 
-docs/assets/huggingface_dataset.png
+docs/assets/huggingface_dataset.PNG
