@@ -67,11 +67,11 @@ Recommended setup:
 
 ### Robot Setup
 
-![Robot Setup](assets/robot_setup.jpg)
+![Robot Setup](assets/robot_setup.jpeg)
 
 ### Colored Blocks
 
-![Colored Blocks](assets/colored_blocks.jpg)
+![Colored Blocks](assets/colored_blocks.jpeg)
 
 ### Camera View
 
