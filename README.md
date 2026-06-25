@@ -49,7 +49,6 @@ docs/
 ├── 03_setup.md
 ├── 04_data_collection_ui.md
 ├── 05_episode_collection.md
-├── 06_dataset_organization.md
 ├── 07_huggingface_storage.md
 ├── 08_training_preparation.md
 ├── 09_troubleshooting.md
