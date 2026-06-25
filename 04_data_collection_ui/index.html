@@ -1,0 +1,1851 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for color sortation episode collection and robot training using the Trossen Mobile AI Robot">
+      
+      
+        <meta name="author" content="Team Project Documentation">
+      
+      
+      
+        <link rel="prev" href="../03_setup/">
+      
+      
+        <link rel="next" href="../05_episode_collection/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Data Collection UI Setup - Color Sortation Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-collection-ui" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Color Sortation Documentation" class="md-header__button md-logo" aria-label="Color Sortation Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Color Sortation Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Collection UI Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Color Sortation Documentation" class="md-nav__button md-logo" aria-label="Color Sortation Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Color Sortation Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_system_requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection UI Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection UI Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Installation Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-Installation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-miniconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Miniconda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create Virtual Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verify-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify Python Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-ui-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation of UI Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation of UI Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-linux-build-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Linux Build Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-the-data-collection-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install the Data Collection UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-post-installation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Post-Installation Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-ui-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the UI Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launching the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-desktop-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Desktop Launcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Command Line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the Robot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring the Robot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-robot-configuration-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Robot Configuration Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-robot-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Robot Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-for-camera-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Camera Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-for-motion-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Motion Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the Task
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-ui-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main UI Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menu Bar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Task Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-view-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera View Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#button-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button Controls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-recording-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End Recording Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-record-last-episode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-record Last Episode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dry-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dry Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-ui-screenshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended UI Screenshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-ui-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good UI Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_episode_collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Episode Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_dataset_organization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Organization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_huggingface_storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hugging Face Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_training_preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-installation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Installation Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-Installation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-miniconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Miniconda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create Virtual Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verify-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Verify Python Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-ui-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation of UI Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation of UI Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-linux-build-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Linux Build Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-the-data-collection-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install the Data Collection UI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-post-installation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Post-Installation Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-ui-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the UI Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launching the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-desktop-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Desktop Launcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Command Line
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the Robot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring the Robot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-robot-configuration-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Robot Configuration Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-robot-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Robot Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-for-camera-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Camera Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-for-motion-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes for Motion Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring the Task
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UI Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launching-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launching the UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-ui-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main UI Sections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menu Bar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robot-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggested Task Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-view-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera View Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#button-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button Controls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-recording-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End Recording Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#re-record-last-episode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Re-record Last Episode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dry-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dry Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-ui-screenshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended UI Screenshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-ui-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Good UI Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-collection-ui">Data Collection UI<a class="headerlink" href="#data-collection-ui" title="Permanent link">&para;</a></h1>
+<p>This section explains how the Data Collection UI is used for the color sortation task.</p>
+<p>The official Trossen Data Collection UI provides features for robot configuration, task configuration, live camera monitoring, recording controls, progress tracking, and dataset saving.</p>
+<h2 id="pre-installation-setup">Pre-Installation Setup<a class="headerlink" href="#pre-installation-setup" title="Permanent link">&para;</a></h2>
+<p>Before installing or using the Trossen AI Data Collection UI, prepare the system environment.</p>
+<h3 id="1-install-miniconda">1. Install Miniconda<a class="headerlink" href="#1-install-miniconda" title="Permanent link">&para;</a></h3>
+<p>Install Miniconda to manage the Python environment for the UI application.</p>
+<h3 id="2-create-virtual-environment">2. Create Virtual Environment<a class="headerlink" href="#2-create-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>Create a clean Python environment for the application:</p>
+<pre><code class="language-bash">conda create -n trossen_ai_data_collection_ui_env python=3.10 -y
+conda activate trossen_ai_data_collection_ui_env
+</code></pre>
+<h3 id="3-verify-python-version">3. Verify Python Version<a class="headerlink" href="#3-verify-python-version" title="Permanent link">&para;</a></h3>
+<p>Check that Python 3.10 is active:</p>
+<pre><code class="language-bash">python --version
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-text">Python 3.10.x
+</code></pre>
+<hr />
+<h2 id="installation-of-ui-application">Installation of UI Application<a class="headerlink" href="#installation-of-ui-application" title="Permanent link">&para;</a></h2>
+<p>After preparing the environment, install the required application.</p>
+<h3 id="1-install-linux-build-dependencies">1. Install Linux Build Dependencies<a class="headerlink" href="#1-install-linux-build-dependencies" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">sudo apt-get install -y \
+build-essential \
+cmake \
+libavcodec-dev \
+libavdevice-dev \
+libavfilter-dev \
+libavformat-dev \
+libavutil-dev \
+libswresample-dev \
+libswscale-dev \
+pkg-config \
+python3-dev
+</code></pre>
+<h3 id="2-install-the-data-collection-ui">2. Install the Data Collection UI<a class="headerlink" href="#2-install-the-data-collection-ui" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">pip install trossen_ai_data_collection_ui
+</code></pre>
+<h3 id="3-run-post-installation-setup">3. Run Post-Installation Setup<a class="headerlink" href="#3-run-post-installation-setup" title="Permanent link">&para;</a></h3>
+<pre><code class="language-bash">trossen_ai_data_collection_ui_post_install
+</code></pre>
+<p>The post-installation script prepares required dependencies, fixes common video/camera library issues, and creates a desktop launcher for the UI.</p>
+<hr />
+<h2 id="updating-the-ui-application">Updating the UI Application<a class="headerlink" href="#updating-the-ui-application" title="Permanent link">&para;</a></h2>
+<p>Updating is recommended when the UI does not work correctly, cameras are not detected properly, or the latest fixes are required.</p>
+<p>To update:</p>
+<pre><code class="language-bash">conda activate trossen_ai_data_collection_ui_env
+pip install trossen_ai_data_collection_ui --upgrade
+trossen_ai_data_collection_ui_post_install
+</code></pre>
+<p>Do not manually edit the internal UI dependency folder because it is managed automatically by the post-installation script.</p>
+<hr />
+<h2 id="launching-the-application">Launching the Application<a class="headerlink" href="#launching-the-application" title="Permanent link">&para;</a></h2>
+<p>The UI can be launched in two ways.</p>
+<h3 id="option-1-desktop-launcher">Option 1: Desktop Launcher<a class="headerlink" href="#option-1-desktop-launcher" title="Permanent link">&para;</a></h3>
+<p>After installation, use the desktop shortcut:</p>
+<pre><code class="language-text">Trossen AI Data Collection UI
+</code></pre>
+<p>If the shortcut does not open, right-click it and select:</p>
+<pre><code class="language-text">Allow Launching
+</code></pre>
+<h3 id="option-2-command-line">Option 2: Command Line<a class="headerlink" href="#option-2-command-line" title="Permanent link">&para;</a></h3>
+<p>Launch the UI from terminal:</p>
+<pre><code class="language-bash">conda activate trossen_ai_data_collection_ui_env
+trossen_ai_data_collection_ui
+</code></pre>
+<hr />
+<h2 id="configuring-the-robot">Configuring the Robot<a class="headerlink" href="#configuring-the-robot" title="Permanent link">&para;</a></h2>
+<p>Robot configuration is used to define the robot model, camera settings, camera serial numbers or indexes, IP addresses, and movement-related parameters.</p>
+<p>To configure the robot:</p>
+<ol>
+<li>Launch the Trossen AI Data Collection UI.</li>
+<li>Click <code>Edit</code> from the top menu.</li>
+<li>Select <code>Robot Configuration</code>.</li>
+<li>Update the required YAML fields.</li>
+<li>Save the configuration.</li>
+<li>Restart or reload the UI if needed.</li>
+</ol>
+<p>The UI supports different robot profiles such as:</p>
+<pre><code class="language-yaml">trossen_ai_stationary
+trossen_ai_mobile
+trossen_ai_solo
+</code></pre>
+<p>For this project, use the robot profile that matches the actual setup. If the robot is a mobile setup, use the mobile robot configuration. If the UI is configured as a stationary setup, keep the stationary profile and only update the required camera/IP values.</p>
+<h3 id="important-robot-configuration-fields">Important Robot Configuration Fields<a class="headerlink" href="#important-robot-configuration-fields" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_relative_target</code></td>
+<td>Safety limit for robot motion</td>
+</tr>
+<tr>
+<td><code>min_time_to_move_multiplier</code></td>
+<td>Controls movement smoothness and speed</td>
+</tr>
+<tr>
+<td><code>camera_interface</code></td>
+<td>Defines camera backend, such as <code>opencv</code></td>
+</tr>
+<tr>
+<td><code>leader_arms</code></td>
+<td>IP/model settings for leader arms, if used</td>
+</tr>
+<tr>
+<td><code>follower_arms</code></td>
+<td>IP/model settings for follower arms, if used</td>
+</tr>
+<tr>
+<td><code>cameras</code></td>
+<td>Camera names, serial numbers/indexes, resolution, and FPS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-robot-configuration">Example Robot Configuration<a class="headerlink" href="#example-robot-configuration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-yaml">trossen_ai_stationary:
+  max_relative_target: null
+  min_time_to_move_multiplier: 3.0
+  camera_interface: &quot;opencv&quot;
+
+  leader_arms:
+    right:
+      ip: &quot;192.168.1.3&quot;
+      model: &quot;V0_LEADER&quot;
+    left:
+      ip: &quot;192.168.1.2&quot;
+      model: &quot;V0_LEADER&quot;
+
+  follower_arms:
+    right:
+      ip: &quot;192.168.1.5&quot;
+      model: &quot;V0_FOLLOWER&quot;
+    left:
+      ip: &quot;192.168.1.4&quot;
+      model: &quot;V0_FOLLOWER&quot;
+
+  cameras:
+    cam_high:
+      serial_number: 0
+      width: 640
+      height: 480
+      fps: 30
+
+    cam_low:
+      serial_number: 1
+      width: 640
+      height: 480
+      fps: 30
+</code></pre>
+<h3 id="notes-for-camera-configuration">Notes for Camera Configuration<a class="headerlink" href="#notes-for-camera-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If <code>camera_interface</code> is set to <code>opencv</code>, use the camera index such as <code>0</code>, <code>1</code>, or <code>2</code>.</li>
+<li>If using Intel RealSense cameras, use the actual camera serial number.</li>
+<li>Do not change camera names unless the UI configuration requires it.</li>
+<li>Make sure the selected resolution and FPS are supported by the camera.</li>
+<li>If the camera is not showing in the UI, check the camera index/serial number first.</li>
+</ul>
+<h3 id="notes-for-motion-configuration">Notes for Motion Configuration<a class="headerlink" href="#notes-for-motion-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A smaller <code>min_time_to_move_multiplier</code> can make movement faster but may cause jerky motion.</li>
+<li>A larger value makes movement smoother but may increase delay.</li>
+<li>Use a safe value first, then adjust only after testing with a dry run.</li>
+</ul>
+<h2 id="configuring-the-task">Configuring the Task<a class="headerlink" href="#configuring-the-task" title="Permanent link">&para;</a></h2>
+<p>Task configuration defines how the color sortation data collection session will run.</p>
+<p>To configure the task:</p>
+<ol>
+<li>Launch the Data Collection UI.</li>
+<li>Click <code>Edit</code>.</li>
+<li>Select <code>Task Configuration</code>.</li>
+<li>Add or edit the color sortation task.</li>
+<li>Save the configuration.</li>
+<li>Select the task from the UI dropdown before recording.</li>
+</ol>
+<p>Recommended task configuration fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>task_name</code></td>
+<td>Unique name of the color sortation task</td>
+</tr>
+<tr>
+<td><code>robot_model</code></td>
+<td>Robot configuration used for the task</td>
+</tr>
+<tr>
+<td><code>task_description</code></td>
+<td>Short explanation of the task</td>
+</tr>
+<tr>
+<td><code>episode_length_s</code></td>
+<td>Duration of each recording</td>
+</tr>
+<tr>
+<td><code>warmup_time_s</code></td>
+<td>Time before recording starts</td>
+</tr>
+<tr>
+<td><code>reset_time_s</code></td>
+<td>Time between recordings</td>
+</tr>
+<tr>
+<td><code>hf_user</code></td>
+<td>Hugging Face username</td>
+</tr>
+<tr>
+<td><code>fps</code></td>
+<td>Recording frame rate</td>
+</tr>
+<tr>
+<td><code>push_to_hub</code></td>
+<td>Upload dataset to Hugging Face</td>
+</tr>
+<tr>
+<td><code>display_fps</code></td>
+<td>Camera preview refresh rate</td>
+</tr>
+<tr>
+<td><code>operators</code></td>
+<td>Names/emails of operators</td>
+</tr>
+</tbody>
+</table>
+<p>Example task description:</p>
+<pre><code class="language-text">Color sortation task using the Trossen Mobile AI Robot. The robot observes red, blue, and green colored blocks through its camera while demonstration episodes are collected using teleoperation. The recorded episodes are used for robot training and testing.
+</code></pre>
+<p>Suggested color sortation task example:</p>
+<pre><code class="language-yaml">- task_name: &quot;color_sortation&quot;
+  robot_model: &quot;trossen_ai_mobile&quot;
+  task_description: &quot;Color sortation task using red, blue, and green colored blocks.&quot;
+  episode_length_s: 10
+  warmup_time_s: 5
+  reset_time_s: 5
+  hf_user: &quot;your_huggingface_username&quot;
+  fps: 30
+  push_to_hub: false
+  play_sounds: true
+  disable_active_ui_updates: false
+  save_interval: 1
+  display_fps: 1
+  operators:
+    - name: &quot;operator_name&quot;
+      email: &quot;operator_email@example.com&quot;
+</code></pre>
+<hr />
+<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <code>Dry Run</code> before actual recording.</li>
+<li>Confirm the camera view before starting an episode.</li>
+<li>If camera preview causes lag, reduce <code>display_fps</code>.</li>
+<li>If the robot movement is jerky, adjust movement-related configuration carefully.</li>
+<li>Use <code>Re-record Last Episode</code> if the object is not visible or the robot movement is incorrect.</li>
+<li>Check that each episode is saved in the correct color category.</li>
+</ul>
+<h2 id="ui-purpose">UI Purpose<a class="headerlink" href="#ui-purpose" title="Permanent link">&para;</a></h2>
+<p>The Data Collection UI is used to:</p>
+<ul>
+<li>Select the color sortation task</li>
+<li>Monitor camera feeds</li>
+<li>Start and stop recording sessions</li>
+<li>Track episode progress</li>
+<li>Re-record poor-quality episodes if required</li>
+<li>Save recorded demonstrations</li>
+<li>Manage robot and task configuration</li>
+</ul>
+<h2 id="launching-the-ui">Launching the UI<a class="headerlink" href="#launching-the-ui" title="Permanent link">&para;</a></h2>
+<p>The UI can be launched using the installed application shortcut or through the terminal, depending on the system setup.</p>
+<p>Before launching, make sure:</p>
+<ul>
+<li>Robot is powered on</li>
+<li>Cameras are connected</li>
+<li>Teleoperation is working</li>
+<li>Correct robot configuration is available</li>
+<li>Correct task configuration is available</li>
+</ul>
+<h2 id="main-ui-sections">Main UI Sections<a class="headerlink" href="#main-ui-sections" title="Permanent link">&para;</a></h2>
+<p>The UI can be understood in the following parts:</p>
+<table>
+<thead>
+<tr>
+<th>UI Section</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menu bar</td>
+<td>Access robot and task configuration</td>
+</tr>
+<tr>
+<td>Camera view</td>
+<td>Display live camera feeds</td>
+</tr>
+<tr>
+<td>Task management panel</td>
+<td>Select task and session settings</td>
+</tr>
+<tr>
+<td>Progress tracking</td>
+<td>Show recording progress</td>
+</tr>
+<tr>
+<td>Log terminal</td>
+<td>Show system messages and errors</td>
+</tr>
+<tr>
+<td>Button controls</td>
+<td>Start, stop, reset, and dry run controls</td>
+</tr>
+</tbody>
+</table>
+<h2 id="menu-bar">Menu Bar<a class="headerlink" href="#menu-bar" title="Permanent link">&para;</a></h2>
+<p>The menu bar provides access to important settings.</p>
+<p>Common options include:</p>
+<ul>
+<li>Robot Configuration</li>
+<li>Task Configuration</li>
+<li>Calibration options</li>
+<li>Quit option</li>
+</ul>
+<h2 id="robot-configuration">Robot Configuration<a class="headerlink" href="#robot-configuration" title="Permanent link">&para;</a></h2>
+<p>Robot configuration is used to set robot-specific parameters.</p>
+<p>This may include:</p>
+<ul>
+<li>Camera names</li>
+<li>Camera serial numbers</li>
+<li>Camera resolution</li>
+<li>Camera FPS</li>
+<li>Robot IP addresses</li>
+<li>Robot model</li>
+<li>Motion parameters</li>
+</ul>
+<p>Use this section when:</p>
+<ul>
+<li>Camera is not detected</li>
+<li>Robot IP address is changed</li>
+<li>Camera serial number is incorrect</li>
+<li>Robot configuration needs to be updated</li>
+</ul>
+<h2 id="task-configuration">Task Configuration<a class="headerlink" href="#task-configuration" title="Permanent link">&para;</a></h2>
+<p>Task configuration defines the data collection task.</p>
+<p>For color sortation, the task configuration should include:</p>
+<ul>
+<li>Task name</li>
+<li>Task description</li>
+<li>Robot model</li>
+<li>Episode duration</li>
+<li>Warmup time</li>
+<li>Reset time</li>
+<li>Recording FPS</li>
+<li>Display FPS</li>
+<li>Hugging Face user</li>
+<li>Dataset upload option</li>
+<li>Operator information</li>
+</ul>
+<h2 id="suggested-task-description">Suggested Task Description<a class="headerlink" href="#suggested-task-description" title="Permanent link">&para;</a></h2>
+<p>Use this task description:</p>
+<pre><code class="language-text">Color sortation task using the Trossen Mobile AI Robot. The robot observes red, blue, and green colored blocks through its camera while demonstration episodes are collected using teleoperation. The recorded episodes are used for robot training and testing.
+</code></pre>
+<h2 id="camera-view-section">Camera View Section<a class="headerlink" href="#camera-view-section" title="Permanent link">&para;</a></h2>
+<p>The camera view is used to check whether the colored block is visible before and during recording.</p>
+<p>Before recording, verify:</p>
+<ul>
+<li>Block is visible</li>
+<li>Camera feed is stable</li>
+<li>Lighting is acceptable</li>
+<li>Object is not too close or too far</li>
+<li>No important part of the scene is hidden</li>
+</ul>
+<h2 id="button-controls">Button Controls<a class="headerlink" href="#button-controls" title="Permanent link">&para;</a></h2>
+<p>Start Recording Session</p>
+<p>Use this button to begin collecting demonstration episodes.</p>
+<p>Before pressing it:</p>
+<ul>
+<li>Select the correct task</li>
+<li>Check camera view</li>
+<li>Confirm robot movement</li>
+<li>Place the colored block correctly</li>
+</ul>
+<h2 id="end-recording-session">End Recording Session<a class="headerlink" href="#end-recording-session" title="Permanent link">&para;</a></h2>
+<p>Use this button to safely stop the recording session.</p>
+<p>After stopping:</p>
+<ul>
+<li>Check whether the episode was saved</li>
+<li>Confirm that the system returned to idle state</li>
+</ul>
+<h2 id="re-record-last-episode">Re-record Last Episode<a class="headerlink" href="#re-record-last-episode" title="Permanent link">&para;</a></h2>
+<p>Use this option if the most recent episode is not useful.</p>
+<p>Re-record if:</p>
+<ul>
+<li>Object was not visible</li>
+<li>Robot movement was incorrect</li>
+<li>Camera view was unclear</li>
+<li>The wrong color object was used</li>
+<li>Recording was interrupted</li>
+</ul>
+<h2 id="dry-run">Dry Run<a class="headerlink" href="#dry-run" title="Permanent link">&para;</a></h2>
+<p>Use dry run before formal recording.</p>
+<p>Dry run helps to:</p>
+<ul>
+<li>Test camera view</li>
+<li>Test robot movement</li>
+<li>Check workspace</li>
+<li>Practice the task</li>
+<li>Avoid saving bad data</li>
+</ul>
+<h2 id="recommended-ui-screenshot">Recommended UI Screenshot<a class="headerlink" href="#recommended-ui-screenshot" title="Permanent link">&para;</a></h2>
+<p>docs/assets/teleoperation_interface.png</p>
+<h2 id="good-ui-practice">Good UI Practice<a class="headerlink" href="#good-ui-practice" title="Permanent link">&para;</a></h2>
+<p>Before every recording session:</p>
+<ul>
+<li>Run a dry test.</li>
+<li>Check the camera feed.</li>
+<li>Confirm the correct task is selected.</li>
+<li>Check that the robot moves smoothly.</li>
+<li>Keep the colored block in the camera view.</li>
+<li>Use re-record if the episode is poor quality.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
