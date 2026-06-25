@@ -17,7 +17,7 @@ nav:
   - Overview: 01_overview.md
   - System Requirements: 02_system_requirements.md
   - Setup: 03_setup.md
-  - Data Collection UI: 04_data_collection_ui.md
+  - Data Collection UI Setup: 04_data_collection_ui.md
   - Episode Collection: 05_episode_collection.md
   - Dataset Organization: 06_dataset_organization.md
   - Hugging Face Storage: 07_huggingface_storage.md
