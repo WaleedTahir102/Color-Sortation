@@ -121,32 +121,89 @@ trossen_ai_data_collection_ui
 
 ## Configuring the Robot
 
-Robot configuration is used to set robot-specific parameters such as camera settings, camera serial numbers, IP addresses, and motion parameters.
+Robot configuration is used to define the robot model, camera settings, camera serial numbers or indexes, IP addresses, and movement-related parameters.
 
 To configure the robot:
 
-1. Launch the Data Collection UI.
-2. Click `Edit`.
+1. Launch the Trossen AI Data Collection UI.
+2. Click `Edit` from the top menu.
 3. Select `Robot Configuration`.
 4. Update the required YAML fields.
 5. Save the configuration.
-6. Restart or reload the UI if required.
+6. Restart or reload the UI if needed.
 
-Important robot configuration fields:
+The UI supports different robot profiles such as:
 
-| Field                         | Purpose                                  |
-| ----------------------------- | ---------------------------------------- |
-| `robot_model`                 | Defines the robot type used for the task |
-| `camera_interface`            | Selects camera backend such as `opencv`  |
-| `serial_number`               | Camera serial number or camera index     |
-| `width` / `height`            | Camera image resolution                  |
-| `fps`                         | Camera recording frame rate              |
-| `ip`                          | Robot or arm IP address                  |
-| `min_time_to_move_multiplier` | Controls smoothness of robot movement    |
+```yaml
+trossen_ai_stationary
+trossen_ai_mobile
+trossen_ai_solo
+```
 
-For this project, make sure the camera serial number or camera index matches the actual camera used for color sortation.
+For this project, use the robot profile that matches the actual setup. If the robot is a mobile setup, use the mobile robot configuration. If the UI is configured as a stationary setup, keep the stationary profile and only update the required camera/IP values.
 
----
+### Important Robot Configuration Fields
+
+| Field                         | Purpose                                                   |
+| ----------------------------- | --------------------------------------------------------- |
+| `max_relative_target`         | Safety limit for robot motion                             |
+| `min_time_to_move_multiplier` | Controls movement smoothness and speed                    |
+| `camera_interface`            | Defines camera backend, such as `opencv`                  |
+| `leader_arms`                 | IP/model settings for leader arms, if used                |
+| `follower_arms`               | IP/model settings for follower arms, if used              |
+| `cameras`                     | Camera names, serial numbers/indexes, resolution, and FPS |
+
+### Example Robot Configuration
+
+```yaml
+trossen_ai_stationary:
+  max_relative_target: null
+  min_time_to_move_multiplier: 3.0
+  camera_interface: "opencv"
+
+  leader_arms:
+    right:
+      ip: "192.168.1.3"
+      model: "V0_LEADER"
+    left:
+      ip: "192.168.1.2"
+      model: "V0_LEADER"
+
+  follower_arms:
+    right:
+      ip: "192.168.1.5"
+      model: "V0_FOLLOWER"
+    left:
+      ip: "192.168.1.4"
+      model: "V0_FOLLOWER"
+
+  cameras:
+    cam_high:
+      serial_number: 0
+      width: 640
+      height: 480
+      fps: 30
+
+    cam_low:
+      serial_number: 1
+      width: 640
+      height: 480
+      fps: 30
+```
+
+### Notes for Camera Configuration
+
+* If `camera_interface` is set to `opencv`, use the camera index such as `0`, `1`, or `2`.
+* If using Intel RealSense cameras, use the actual camera serial number.
+* Do not change camera names unless the UI configuration requires it.
+* Make sure the selected resolution and FPS are supported by the camera.
+* If the camera is not showing in the UI, check the camera index/serial number first.
+
+### Notes for Motion Configuration
+
+* A smaller `min_time_to_move_multiplier` can make movement faster but may cause jerky motion.
+* A larger value makes movement smoother but may increase delay.
+* Use a safe value first, then adjust only after testing with a dry run.
 
 ## Configuring the Task
 
