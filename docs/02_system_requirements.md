@@ -40,16 +40,6 @@ Make sure that:
 - The camera view is checked before recording.
 - Unnecessary objects are removed from the workspace.
 
-## Recommended Images
-
-Add these images to the `docs/assets/` folder:
-
-| Image name | What it should show |
-|---|---|
-| `robot_setup.jpg` | Robot in the working area |
-| `colored_blocks.jpg` | Red, blue, and green blocks |
-| `camera_view.png` | Camera view of a colored block |
-
 ## Example Setup Image
 
 ![Robot Setup](assets/robot_setup.jpeg)
